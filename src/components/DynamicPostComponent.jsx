@@ -29,11 +29,11 @@ function App() {
           <PostInteractionBar postType="post" />
           <AddCommentComponent />
           <br/>
-            { comments.length ? 
+            { [].length ? 
             <div>
                 <div className='separator' />
-                {comments.map((comment) => {
-                    return <CommentComponent {...comment}/>
+                {[].map((comment) => {
+                    return <CommentComponent key={comment.id} {...comment}/>
                 })}
             </div>
             :

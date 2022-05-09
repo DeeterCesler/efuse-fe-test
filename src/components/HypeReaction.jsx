@@ -4,7 +4,9 @@ export default function HypeReaction(props){
             <button className="hype-button icon-button">
                 <div className="hype-icon"></div>
             </button>
-            <strong>{props.numHypes}</strong> Hypes
+            <p>
+                <strong>{props.numHypes}</strong> Hypes
+            </p>
         </div>
     )
 }

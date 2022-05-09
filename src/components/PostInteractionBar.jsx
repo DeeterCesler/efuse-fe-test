@@ -16,7 +16,7 @@ export default function PostInteractionBar(props){
             <CommentReaction numComments={post.numComments} postType={postType}/>
             <SharesReaction numShares={post.numShares} />
             {postType === 'post' ? 
-            <div>
+            <div className='views'>
                 <strong>{post.views}</strong> Views
             </div>
             : null }

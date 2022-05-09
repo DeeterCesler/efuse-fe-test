@@ -6,7 +6,11 @@ export default function CommentReaction(props){
             <button className="comment-button icon-button">
                 <div className="comment-icon"></div>
             </button>
-            <strong>{props.numComments}</strong> {postType === 'post' ? 'Comments' : 'Replies'}
+            <p>
+                <div>
+                <strong>{props.numComments}</strong> {postType === 'post' ? 'Comments' : 'Replies'}
+                </div>
+            </p>
         </div>
     )
 }

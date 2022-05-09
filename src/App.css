@@ -2,6 +2,10 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+* {
+  /* border: 1px solid rgb(182, 255, 35); */
+}
+
 .container {
   padding: 1rem;
 }
@@ -17,9 +21,19 @@ body {
   width: 60px;
 }
 
+.reaction-bar {
+  height: 60px;
+  overflow-y: hidden;
+}
+
 .reaction-bar > div {
   display: inline-block;
   margin: 10px;
+}
+
+.reaction-bar p {
+  display: inline-block;
+  margin: 0;
 }
 
 .post {
@@ -50,6 +64,7 @@ body {
 
 .titles p {
   font-size: 0.75rem;
+  /* margin-bottom: 3px; */
 }
 
 .add-comment-component {
@@ -59,7 +74,7 @@ body {
   height: 40px;
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  padding: 5px 15px;
 }
 
 .reaction-bar .hype {
@@ -68,8 +83,10 @@ body {
 
 /* Begin Icon Buttons */
 
-.hype-button {
-  background-color: none;
+.hype-button,
+.comment-button,
+.share-button {
+  background-color: rgba(244, 73, 0, 0);
   border: none;
   border-radius: 100px;
   width: 30px;
@@ -80,7 +97,9 @@ body {
   background-color: rgba(244, 73, 0, 0.3);
 }
 
-.hype-button .hype-icon {
+.hype-icon {
+  content: url('./assets/flame.svg');
+  margin-left: 3px;
   opacity: 0.6;
 }
 
@@ -90,40 +109,45 @@ body {
   opacity: 1;
 }
 
-.hype-button:active {
-  background-color: blue;
+.hype-button:active .hype-icon {
+  filter: invert(100%) sepia(0%) saturate(16%) hue-rotate(293deg)
+    brightness(105%) contrast(103%);
   opacity: 1;
 }
 
-.hype-icon {
-  content: url('./assets/flame.svg');
-}
-
-.comment-button {
-  background-color: none;
-  border: none;
-  border-radius: 100px;
-  width: 30px;
-  height: 30px;
-}
-
-.comment-button:hover {
-  background-color: rgba(0, 108, 250, 0.3);
-}
-.comment-button:active {
-  background-color: blue;
+.hype-button:active {
+  background-color: #f44900;
 }
 
 .comment-icon {
   content: url('./assets/comment.svg');
 }
 
-.share-button {
-  background-color: none;
-  border: none;
-  border-radius: 100px;
-  width: 30px;
-  height: 30px;
+.comment-button:hover {
+  background-color: rgba(0, 108, 250, 0.3);
+}
+
+.comment-button:hover .comment-icon {
+  filter: invert(27%) sepia(94%) saturate(3301%) hue-rotate(207deg)
+    brightness(100%) contrast(100%);
+  opacity: 1;
+}
+
+.comment-button:active .comment-icon {
+  filter: none;
+  content: url('./assets/comment-white.svg');
+  filter: invert(0%) sepia(0%) saturate(116%) hue-rotate(293deg)
+    brightness(125%) contrast(103%);
+  opacity: 1;
+}
+
+.comment-button:active {
+  background-color: #006cfa;
+}
+
+.share-icon {
+  margin-left: 1px;
+  content: url('./assets/share.svg');
 }
 
 .share-button:hover {
@@ -131,15 +155,19 @@ body {
 }
 
 .share-button:hover .share-icon {
-  color: rgba(18, 21, 29, 0.87);
+  filter: invert(8%) sepia(28%) saturate(541%) hue-rotate(186deg)
+    brightness(87%) contrast(99%);
+  opacity: 1;
+}
+
+.share-button:active .share-icon {
+  filter: none;
+  content: url('./assets/share-white.svg');
+  opacity: 1;
 }
 
 .share-button:active {
-  background-color: blue;
-}
-
-.share-icon {
-  content: url('./assets/share.svg');
+  background-color: #12151d;
 }
 
 /* End Icon Buttons */

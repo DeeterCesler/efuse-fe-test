@@ -17,6 +17,7 @@ const dummyData = {
   },
   comments: [
     {
+      id: 1,
       postType: 'comment',
       postAuthor: 'dunkey',
       postAuthorProfileUrl: '../assets/dunkey.jpg',
@@ -28,6 +29,7 @@ const dummyData = {
       numShares: 10,
     },
     {
+      id: 2,
       postType: 'comment',
       postAuthor: 'dunkey',
       postAuthorProfileUrl: '../assets/dunkey.jpg',
@@ -45,10 +47,8 @@ export const AppContext = createContext(dummyData)
 
 function App() {
   return (
-    <div>
-      <div className="container">
-        <DynamicPostComponent />
-      </div>
+    <div className="container">
+      <DynamicPostComponent />
     </div>
   )
 }
