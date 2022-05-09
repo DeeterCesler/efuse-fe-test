@@ -1,33 +1,53 @@
+import { createContext } from 'react'
 import './App.css'
-import PostHeaderComponent from './components/PostHeaderComponent'
-import PostInteractionBar from './components/PostInteractionBar'
-import AddCommentComponent from './components/AddCommentComponent'
+import DynamicPostComponent from './components/DynamicPostComponent'
+
+const dummyData = {
+  post: {
+    postType: 'post',
+    postAuthor: 'dunkey',
+    postAuthorProfileUrl: '../assets/dunkey.jpg',
+    postAuthorId: 123,
+    postBody:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Knack 2 baybee ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    numHypes: 300,
+    numComments: 20,
+    numShares: 10,
+    views: 100,
+  },
+  comments: [
+    {
+      postType: 'comment',
+      postAuthor: 'dunkey',
+      postAuthorProfileUrl: '../assets/dunkey.jpg',
+      postAuthorId: 123,
+      postBody:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Knack 2 baybee ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      numHypes: 300,
+      numComments: 20,
+      numShares: 10,
+    },
+    {
+      postType: 'comment',
+      postAuthor: 'dunkey',
+      postAuthorProfileUrl: '../assets/dunkey.jpg',
+      postAuthorId: 123,
+      postBody:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Knack 2 baybee ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      numHypes: 300,
+      numComments: 20,
+      numShares: 10,
+    },
+  ],
+}
+
+export const AppContext = createContext(dummyData)
 
 function App() {
-  const comment = () => {
-    return (
-      <div className="comment">
-        <PostHeaderComponent postType="comment" />
-      </div>
-    )
-  }
-
   return (
     <div>
       <div className="container">
-        <div className="post">
-          <PostHeaderComponent postType="post" />
-          <br />
-          <div>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Knack 2
-            baybee ut enim ad minim veniam, quis nostrud exercitation ullamco
-            laboris nisi ut aliquip ex ea commodo consequat.
-          </div>
-          <br />
-          <PostInteractionBar postType="post" views={100} />
-          <AddCommentComponent />
-        </div>
+        <DynamicPostComponent />
       </div>
     </div>
   )
