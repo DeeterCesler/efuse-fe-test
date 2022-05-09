@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import PostHeaderComponent from './components/PostHeaderComponent'
+import PostInteractionBar from './components/PostInteractionBar'
+import AddCommentComponent from './components/AddCommentComponent'
 
 function App() {
+  const comment = () => {
+    return (
+      <div className="comment">
+        <PostHeaderComponent postType="comment" />
+      </div>
+    )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div className="container">
+        <div className="post">
+          <PostHeaderComponent postType="post" />
+          <br />
+          <div>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Knack 2
+            baybee ut enim ad minim veniam, quis nostrud exercitation ullamco
+            laboris nisi ut aliquip ex ea commodo consequat.
+          </div>
+          <br />
+          <PostInteractionBar postType="post" views={100} />
+          <AddCommentComponent />
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

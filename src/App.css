@@ -1,3 +1,7 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +39,154 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.post {
+  border: 1px dimgray solid;
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.post-header .pfp {
+  height: 60px;
+  width: 60px;
+}
+
+.reaction-bar > div {
+  display: inline-block;
+  margin: 10px;
+}
+
+.post {
+  max-width: 80%;
+  margin: auto;
+}
+
+.pfp {
+  height: 50px;
+  border-radius: 45px;
+}
+
+.post-header-component {
+  display: flex;
+}
+
+.titles {
+  display: inline-block;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.titles h3,
+.titles p {
+  margin: 0;
+}
+
+.titles p {
+  font-size: 0.75rem;
+}
+
+.add-comment-component {
+  max-width: 100%;
+  background-color: #f1f4f8;
+  border-radius: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.reaction-bar .hype {
+  margin-left: 0;
+}
+
+/* Begin Icon Buttons */
+
+.hype-button {
+  background-color: none;
+  border: none;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+}
+
+.hype-button:hover {
+  background-color: rgba(244, 73, 0, 0.3);
+}
+
+.hype-button .hype-icon {
+  opacity: 0.6;
+}
+
+.hype-button:hover .hype-icon {
+  filter: invert(32%) sepia(39%) saturate(6295%) hue-rotate(12deg)
+    brightness(102%) contrast(106%);
+  opacity: 1;
+}
+
+.hype-button:active {
+  background-color: blue;
+  opacity: 1;
+}
+
+.hype-icon {
+  content: url('./assets/flame.svg');
+}
+
+.comment-button {
+  background-color: none;
+  border: none;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+}
+
+.comment-button:hover {
+  background-color: rgba(0, 108, 250, 0.3);
+}
+.comment-button:active {
+  background-color: blue;
+}
+
+.comment-icon {
+  content: url('./assets/comment.svg');
+}
+
+.share-button {
+  background-color: none;
+  border: none;
+  border-radius: 100px;
+  width: 30px;
+  height: 30px;
+}
+
+.share-button:hover {
+  background-color: rgba(18, 21, 29, 0.3);
+}
+
+.share-button:hover .share-icon {
+  color: rgba(18, 21, 29, 0.87);
+}
+
+.share-button:active {
+  background-color: blue;
+}
+
+.share-icon {
+  content: url('./assets/share.svg');
+}
+
+/* End Icon Buttons */
+
+.comment-field {
+  margin: 0.5rem;
+}
+
+.comment-field::before {
+  content: url('./assets/comment.svg');
+}
+
+.icon-button {
+  margin-left: 5px;
+  margin-right: 8px;
 }
