@@ -1,11 +1,9 @@
-import img from '../assets/dunkey.jpg'
-
 export default function PostHeaderComponent(props){
     return (
         <div className={`post-header-component ${props.postType}-header`}>
-            <img src={img} className='pfp' alt='profile-pic'/>
+            <img src={props.postAuthorProfileUrl} className='pfp' alt='profile-pic'/>
             <div className='titles'>
-                <h3>dunkey</h3>
+                <h3>{props.postAuthor}</h3>
                 <p>2 minutes ago</p>
             </div>
         </div>

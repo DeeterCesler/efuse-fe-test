@@ -6,7 +6,7 @@ export default function SharesReaction(props){
                 <div className="share-icon"></div>
             </button>
             <p>
-                <strong>{props.numShares}</strong> Shares
+                <strong>{props.numShares}</strong> {props.numShares !== 1 ? 'Shares' : 'Share'}
             </p>
         </div>
     )

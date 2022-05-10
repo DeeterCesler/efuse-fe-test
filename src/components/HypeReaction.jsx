@@ -5,7 +5,7 @@ export default function HypeReaction(props){
                 <div className="hype-icon"></div>
             </button>
             <p>
-                <strong>{props.numHypes}</strong> Hypes
+                <strong>{props.numHypes}</strong> {props.numHypes !== 1 ? 'Hypes' : 'Hype'}
             </p>
         </div>
     )

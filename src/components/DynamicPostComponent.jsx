@@ -1,48 +1,59 @@
-import { useContext } from 'react'
+import { useState, createContext } from 'react'
 import PostHeaderComponent from './PostHeaderComponent'
 import PostInteractionBar from './PostInteractionBar'
 import AddCommentComponent from './AddCommentComponent'
-import { AppContext } from '../App';
 
-function App() {
-  const context = useContext(AppContext);
-  const { post, comments } = context;
+export const PostContext = createContext();
+
+function DynamicPostComponent(props) {
+  const { post } = props
+  const [comments, setComments] = useState([]);
+
   
-  const CommentComponent = () => {
+  const CommentComponent = (props) => {
     return (
       <div className="comment">
-        <PostHeaderComponent postType="comment" />
+        <PostHeaderComponent {...props} />
+      <p>
+        {props.postBody}
+      </p>
+      <PostInteractionBar {...props} />
       </div>
     )
   }
 
   return (
-    <div>
-      <div className="container">
-        <div className="post">
-          <PostHeaderComponent postType="post" />
-          <br />
-          <div>
-            {post.postBody}
-          </div>
-          <br />
-          <PostInteractionBar postType="post" />
-          <AddCommentComponent />
-          <br/>
-            { [].length ? 
-            <div>
-                <div className='separator' />
-                {[].map((comment) => {
-                    return <CommentComponent key={comment.id} {...comment}/>
-                })}
-            </div>
-            :
-            null
-            }
+    <div className="post">
+      <PostHeaderComponent {...post} />
+      <p>
+        {post.postBody}
+      </p>
+      <PostInteractionBar {...post} />
+      <AddCommentComponent />
+      <br/>
+        { comments.length ? 
+        <div>
+            <div className='separator' />
+            {comments?.map((comment) => {
+                return <CommentComponent key={comment.id} {...comment}/>
+            })}
         </div>
-      </div>
+        :
+        null
+        }
+        {/* This one below is only to show a preloaded comment batch (dunkey's) */}
+        { post?.comments?.length ? 
+        <div>
+            <div className='separator' />
+            {post.comments.map((comment) => {
+                return <CommentComponent key={comment.id} {...comment}/>
+            })}
+        </div>
+        :
+        null
+        }
     </div>
   )
 }
 
-export default App
+export default DynamicPostComponent

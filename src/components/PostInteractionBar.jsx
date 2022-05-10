@@ -1,23 +1,19 @@
-import { useContext } from 'react';
-import { AppContext } from '../App';
 import HypeReaction from './HypeReaction'
 import CommentReaction from './CommentReaction'
 import SharesReaction from './SharesReaction'
 
 export default function PostInteractionBar(props){
-    const context = useContext(AppContext);
-    const { post } = context;
-    const { postType } = props;
+    const { postType, numHypes, numComments, numShares, views } = props
 
     
     return (
         <div className='reaction-bar'>
-            <HypeReaction numHypes={post.numHypes} />
-            <CommentReaction numComments={post.numComments} postType={postType}/>
-            <SharesReaction numShares={post.numShares} />
+            <HypeReaction numHypes={numHypes} />
+            <CommentReaction numComments={numComments} postType={postType}/>
+            <SharesReaction numShares={numShares} />
             {postType === 'post' ? 
             <div className='views'>
-                <strong>{post.views}</strong> Views
+                <strong>{views}</strong> {views !== 1 ? 'Views' : 'View'}
             </div>
             : null }
         </div>
