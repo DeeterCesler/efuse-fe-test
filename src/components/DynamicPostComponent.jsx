@@ -1,14 +1,28 @@
-import { useState, createContext } from 'react'
+import { useState, useContext } from 'react'
 import PostHeaderComponent from './PostHeaderComponent'
 import PostInteractionBar from './PostInteractionBar'
 import AddCommentComponent from './AddCommentComponent'
-
-export const PostContext = createContext();
+import {UserContext} from '../App';
 
 function DynamicPostComponent(props) {
   const { post } = props
+  const context = useContext(UserContext)
   const [comments, setComments] = useState([]);
 
+  const handleNewCommentSubmit = (newComment) => {
+    setComments([...comments,
+      {
+        postType: 'comment',
+        postAuthor: context.username,
+        postAuthorProfileUrl: context.pfp,
+        postAuthorId: 123,
+        postBody: newComment,
+        numHypes: 0,
+        numComments: 0,
+        numShares: 0,
+      },
+    ]);
+  }
   
   const CommentComponent = (props) => {
     return (
@@ -29,7 +43,7 @@ function DynamicPostComponent(props) {
         {post.postBody}
       </p>
       <PostInteractionBar {...post} />
-      <AddCommentComponent />
+      <AddCommentComponent handleNewCommentSubmit={handleNewCommentSubmit} />
       <br/>
         { comments.length ? 
         <div>

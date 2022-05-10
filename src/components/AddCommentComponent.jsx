@@ -16,7 +16,7 @@ export default function AddCommentComponent(props){
                 <input placeholder="Comment goes here" onChange={handleCommentInput} />
             </div>
             <div style={{position: 'absolute', right: '10px', alignItems: 'center'}}>
-                <button className={`new-comment-button ${comment.length && 'comment-active'}`} disabled={!comment.length} style={{cursor: comment.length ? 'pointer': 'default'}}>Post</button>
+                <button onClick={()=>props.handleNewCommentSubmit(comment)} className={`new-comment-button ${comment.length && 'comment-active'}`} disabled={!comment.length} style={{cursor: comment.length ? 'pointer': 'default'}}>Post</button>
             </div>
         </div>
      :
