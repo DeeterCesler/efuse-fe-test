@@ -45,21 +45,24 @@ function DynamicPostComponent(props) {
       <PostInteractionBar {...post} />
       <AddCommentComponent handleNewCommentSubmit={handleNewCommentSubmit} />
       <br/>
-        { comments.length ? 
+        { comments.length || post?.comments?.length
+          ? <div className='separator' />
+          : null
+        }
+        {/* This one below is only to show a preloaded comment batch (dunkey's) */}
+        { post?.comments?.length ? 
         <div>
-            <div className='separator' />
-            {comments?.map((comment) => {
+            {[...post.comments].map((comment) => {
                 return <CommentComponent key={comment.id} {...comment}/>
             })}
         </div>
         :
         null
         }
-        {/* This one below is only to show a preloaded comment batch (dunkey's) */}
-        { post?.comments?.length ? 
+        {/* The real comments */}
+        { comments.length ? 
         <div>
-            <div className='separator' />
-            {post.comments.map((comment) => {
+            {comments?.map((comment) => {
                 return <CommentComponent key={comment.id} {...comment}/>
             })}
         </div>
