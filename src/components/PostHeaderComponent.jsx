@@ -6,6 +6,7 @@ export default function PostHeaderComponent(props){
                 <h3>{props.postAuthor}</h3>
                 <p>2 minutes ago</p>
             </div>
+            { props.postType === 'post' && <div className="dots"></div> }
         </div>
     )
 }

@@ -17,7 +17,6 @@ const dummyData = {
   postBody:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Knack 2 baybee ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
   numHypes: 300,
-  numComments: 20,
   numShares: 10,
   views: 100,
   comments: [
@@ -59,23 +58,25 @@ function App() {
   const context = useContext(UserContext)
 
   const handlePostSubmit = () => {
-    setPosts([
-      {
-        id: idCounter + 1,
-        postType: 'post',
-        postAuthor: context.username,
-        postAuthorProfileUrl: context.pfp,
-        postAuthorId: 5,
-        postBody: newPost,
-        numHypes: 0,
-        numComments: 0,
-        numShares: 0,
-        views: 0,
-        comments: [],
-      },
-      ...posts,
-    ])
-    setIdCounter(idCounter + 1)
+    if (newPost.length) {
+      setPosts([
+        {
+          id: idCounter + 1,
+          postType: 'post',
+          postAuthor: context.username,
+          postAuthorProfileUrl: context.pfp,
+          postAuthorId: 5,
+          postBody: newPost,
+          numHypes: 0,
+          numComments: 0,
+          numShares: 0,
+          views: 0,
+          comments: [],
+        },
+        ...posts,
+      ])
+      setIdCounter(idCounter + 1)
+    }
   }
 
   const handleNewPost = (e) => {
@@ -149,10 +150,7 @@ function App() {
               <GoLiveComponent />
             </div>
             <div>
-              <button
-                onClick={newPost.length && handlePostSubmit}
-                className="new-post"
-              >
+              <button onClick={handlePostSubmit} className="new-post">
                 Post
               </button>
             </div>

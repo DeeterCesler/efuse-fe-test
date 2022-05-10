@@ -1,5 +1,5 @@
 export default function CommentReaction(props){
-    const { postType } = props;
+    const { postType, numComments } = props;
 
     return (
         <div>
@@ -7,7 +7,7 @@ export default function CommentReaction(props){
                 <div className="comment-icon"></div>
             </button>
             <p>
-                <b>{props.numComments}</b> {postType === 'post' ? (props.numComments !== 1 ? 'Comments' : 'Comment') : (props.numComments !== 1 ? 'Replies' : 'Reply') }
+                <b>{numComments || 0}</b> {postType === 'post' ? (numComments !== 1 ? 'Comments' : 'Comment') : (numComments !== 1 ? 'Replies' : 'Reply') }
             </p>
         </div>
     )

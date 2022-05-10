@@ -7,21 +7,34 @@ import {UserContext} from '../App';
 function DynamicPostComponent(props) {
   const { post } = props
   const context = useContext(UserContext)
+  const [hypeToggle, setHypeToggle] = useState(0);
+  const [hypeCounter, setHypeCounter] = useState(0);
   const [comments, setComments] = useState([]);
+  const [idCounter, setIdCounter] = useState(1) // defaulting to 1 becase I'm seeding a dummy post with an ID of 1 already
 
   const handleNewCommentSubmit = (newComment) => {
     setComments([...comments,
       {
+        id: idCounter,
         postType: 'comment',
         postAuthor: context.username,
         postAuthorProfileUrl: context.pfp,
         postAuthorId: 123,
         postBody: newComment,
-        numHypes: 0,
-        numComments: 0,
         numShares: 0,
       },
     ]);
+    setIdCounter(idCounter + 1);
+  }
+
+  const handleHypeClick = () => {
+    if(!hypeToggle) {
+      setHypeCounter(hypeCounter + 1)
+      setHypeToggle(!hypeToggle)
+    } else {
+      setHypeCounter(hypeCounter -1)
+      setHypeToggle(!hypeToggle)
+    }
   }
   
   const CommentComponent = (props) => {
@@ -42,7 +55,7 @@ function DynamicPostComponent(props) {
       <p>
         {post.postBody}
       </p>
-      <PostInteractionBar {...post} />
+      <PostInteractionBar hypeToggle={hypeToggle} handleHypeClick={handleHypeClick} hypeCounter={hypeCounter} {...post} />
       <AddCommentComponent handleNewCommentSubmit={handleNewCommentSubmit} />
       <br/>
         { comments.length || post?.comments?.length

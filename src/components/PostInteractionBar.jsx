@@ -3,12 +3,11 @@ import CommentReaction from './CommentReaction'
 import SharesReaction from './SharesReaction'
 
 export default function PostInteractionBar(props){
-    const { postType, numHypes, numComments, numShares, views } = props
+    const { postType, numShares, numComments, views } = props
 
-    
     return (
         <div className='reaction-bar'>
-            <HypeReaction numHypes={numHypes} />
+            <HypeReaction hypeToggle={props.hypeToggle} handleHypeClick={props.handleHypeClick} numHypes={props.hypeCounter} />
             <CommentReaction numComments={numComments} postType={postType}/>
             <SharesReaction numShares={numShares} />
             {postType === 'post' ? 

@@ -83,6 +83,13 @@ input {
   background-color: #0661d9;
 }
 
+.dots {
+  content: url('./assets/dots.svg');
+  right: 0;
+  position: absolute;
+  top: 5px;
+}
+
 .post-header .pfp {
   height: 60px;
   width: 60px;
@@ -141,6 +148,7 @@ input {
 
 .post-header-component {
   display: flex;
+  position: relative;
 }
 
 .titles {
@@ -233,7 +241,12 @@ input {
   opacity: 1;
 }
 
-.hype-button:active .hype-icon {
+.hype-button:active,
+.hype-active {
+  background-color: #f44900;
+}
+.hype-button:active .hype-icon,
+.hype-active .hype-icon {
   filter: invert(100%) sepia(0%) saturate(16%) hue-rotate(293deg)
     brightness(105%) contrast(103%);
   opacity: 1;

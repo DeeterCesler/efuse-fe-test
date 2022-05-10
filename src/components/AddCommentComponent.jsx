@@ -10,13 +10,18 @@ export default function AddCommentComponent(props){
         setComment(e.currentTarget.value);
     }
 
+    const handleAndClear = () => {
+        props.handleNewCommentSubmit(comment)
+        setComment('');
+    }
+
     return (toggle ?
         <div className="add-comment-component-active" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative'}}>
             <div className='comment-input'>
                 <input placeholder="Comment goes here" onChange={handleCommentInput} />
             </div>
             <div style={{position: 'absolute', right: '10px', alignItems: 'center'}}>
-                <button onClick={()=>props.handleNewCommentSubmit(comment)} className={`new-comment-button ${comment.length && 'comment-active'}`} disabled={!comment.length} style={{cursor: comment.length ? 'pointer': 'default'}}>Post</button>
+                <button onClick={handleAndClear} className={`new-comment-button ${comment.length && 'comment-active'}`} disabled={!comment.length} style={{cursor: comment.length ? 'pointer': 'default'}}>Post</button>
             </div>
         </div>
      :
