@@ -79,7 +79,7 @@ input {
   }
 
   .reaction-bar {
-    width: 110%; /* prevents scrunching on mobile */
+    width: 105%; /* prevents scrunching on mobile */
   }
 
   .reaction-bar div {
@@ -93,6 +93,14 @@ input {
 
   .icon-button {
     margin: 1px;
+  }
+
+  .icon-button > div {
+    margin-left: -5px;
+  }
+
+  .reaction-bar .hype-icon {
+    margin-left: -2px;
   }
 }
 
