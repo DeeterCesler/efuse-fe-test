@@ -5,6 +5,10 @@
   top: 5px;
 }
 
+.pfp {
+  border-radius: 45px;
+}
+
 .post-header .pfp {
   height: 60px;
   width: 60px;
@@ -13,11 +17,6 @@
 .comment-header .pfp {
   height: 40px;
   width: 40px;
-}
-
-.pfp {
-  height: 50px;
-  border-radius: 45px;
 }
 
 .post-header-component {
@@ -38,7 +37,6 @@
 
 .titles p {
   font-size: 0.75rem;
-  /* margin-bottom: 3px; */
 }
 
 .add-comment-component {

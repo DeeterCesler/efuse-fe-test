@@ -17,7 +17,7 @@ test('user can write into the post input', async () => {
   expect(screen.getByDisplayValue('test')).toBeInTheDocument()
 })
 
-test('user writing in post input which enables the "Post" button', async () => {
+test('user writing in post input enables the "Post" button', async () => {
   render(<App />)
   const newPostInput = await screen.findByPlaceholderText(
     "What's on your mind?",

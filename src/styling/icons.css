@@ -1,21 +1,19 @@
-/* Begin Icon Buttons */
+/* Draft icons */
 
 .add-media-icon {
   content: url('../assets/camera.svg');
-  /* margin-left: 3px;
-    opacity: 0.6; */
 }
 
 .go-live-icon {
   content: url('../assets/video.svg');
-  /* margin-left: 3px;
-    opacity: 0.6; */
 }
 
 .add-media-button,
 .go-live-button {
   width: 200px;
 }
+
+/* Reaction bar icons */
 
 .add-media-button,
 .go-live-button,

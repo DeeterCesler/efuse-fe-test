@@ -10,15 +10,13 @@
   align-items: center;
 }
 
-.reaction-bar > div,
 .reaction-bar > p {
   display: inline-block;
-  margin: 10px;
-}
-
-.reaction-bar p {
-  display: inline-block;
   margin: 0;
+}
+.reaction-bar > div {
+  display: inline-flex;
+  margin: 10px;
 }
 
 .reaction-bar .hype {
@@ -28,8 +26,4 @@
 .reaction-bar {
   display: flex;
   align-items: center;
-}
-
-.reaction-bar > div {
-  display: inline-flex;
 }
