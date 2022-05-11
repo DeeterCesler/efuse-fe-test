@@ -1,13 +1,14 @@
 import { useState, useContext } from 'react'
 import PostHeaderComponent from './PostHeaderComponent'
 import PostInteractionBar from './PostInteractionBar'
+import CommentComponent from './CommentComponent'
 import AddCommentComponent from './AddCommentComponent'
 import {UserContext} from '../App';
 
 function DynamicPostComponent(props) {
   const { post } = props
   const context = useContext(UserContext)
-  const [hypeToggle, setHypeToggle] = useState(0);
+  const [hypeToggle, setHypeToggle] = useState(false);
   const [hypeCounter, setHypeCounter] = useState(0);
   const [comments, setComments] = useState([]);
   const [idCounter, setIdCounter] = useState(1) // defaulting to 1 becase I'm seeding a dummy post with an ID of 1 already
@@ -32,21 +33,9 @@ function DynamicPostComponent(props) {
       setHypeCounter(hypeCounter + 1)
       setHypeToggle(!hypeToggle)
     } else {
-      setHypeCounter(hypeCounter -1)
+      setHypeCounter(hypeCounter - 1)
       setHypeToggle(!hypeToggle)
     }
-  }
-  
-  const CommentComponent = (props) => {
-    return (
-      <div className="comment">
-        <PostHeaderComponent {...props} />
-      <p>
-        {props.postBody}
-      </p>
-      <PostInteractionBar {...props} />
-      </div>
-    )
   }
 
   return (

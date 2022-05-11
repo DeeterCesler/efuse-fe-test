@@ -46,7 +46,7 @@ const dummyData = {
 }
 
 export const UserContext = createContext({
-  id: 10,
+  id: 1, // arbitary user ID
   username: 'You',
   pfp: pfp,
 })
@@ -76,6 +76,7 @@ function App() {
         ...posts,
       ])
       setIdCounter(idCounter + 1)
+      setNewPost('') // clear the input
     }
   }
 
@@ -83,11 +84,17 @@ function App() {
     setNewPost(e.currentTarget.value)
   }
 
+  const handleKey = (e) => {
+    if (e.key === 'Enter') {
+      handlePostSubmit()
+    }
+  }
+
   return (
     <div>
       <div className="mobile-menu">
-        <div>
-          <div>
+        <div id="left-mobile">
+          <div id="hamburger">
             <svg
               width="14"
               height="12"
@@ -103,7 +110,7 @@ function App() {
           </div>
           <img src={logo} alt="logo" style={{ margin: '0 1rem' }} />
         </div>
-        <div>
+        <div id="right-mobile">
           <div className="search">
             <svg
               width="17"
@@ -142,6 +149,8 @@ function App() {
             <input
               placeholder="What's on your mind?"
               onChange={handleNewPost}
+              onKeyDown={handleKey}
+              value={newPost}
             />
           </div>
           <div className="draft-bar">
@@ -149,8 +158,12 @@ function App() {
               <AddMediaComponent />
               <GoLiveComponent />
             </div>
-            <div>
-              <button onClick={handlePostSubmit} className="new-post">
+            <div id="draft-submit">
+              <button
+                disabled={!newPost.length}
+                onClick={handlePostSubmit}
+                className="new-post"
+              >
                 Post
               </button>
             </div>

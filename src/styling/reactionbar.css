@@ -1,0 +1,35 @@
+.reaction-bar {
+  display: inline-flex;
+  align-items: center;
+}
+
+.reaction-bar,
+.reaction-bar > div {
+  height: 60px;
+  overflow-y: hidden;
+  align-items: center;
+}
+
+.reaction-bar > div,
+.reaction-bar > p {
+  display: inline-block;
+  margin: 10px;
+}
+
+.reaction-bar p {
+  display: inline-block;
+  margin: 0;
+}
+
+.reaction-bar .hype {
+  margin-left: 0;
+}
+
+.reaction-bar {
+  display: flex;
+  align-items: center;
+}
+
+.reaction-bar > div {
+  display: inline-flex;
+}

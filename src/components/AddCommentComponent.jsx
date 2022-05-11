@@ -5,7 +5,6 @@ import plus from '../assets/add.svg';
 export default function AddCommentComponent(props){
     const [toggle, setToggle] = useState(false);
     const [comment, setComment] = useState('');
-
     const handleCommentInput = (e) => {
         setComment(e.currentTarget.value);
     }
@@ -15,10 +14,14 @@ export default function AddCommentComponent(props){
         setComment('');
     }
 
+    const handleKey = (e) => {
+        if (e.key === 'Enter') handleAndClear();
+      }
+
     return (toggle ?
         <div className="add-comment-component-active" style={{display: 'flex', alignItems: 'center', justifyContent: 'space-between', position: 'relative'}}>
             <div className='comment-input'>
-                <input placeholder="Comment goes here" onChange={handleCommentInput} />
+                <input placeholder="Comment goes here" onChange={handleCommentInput} onKeyDown={handleKey} value={comment} />
             </div>
             <div style={{position: 'absolute', right: '10px', alignItems: 'center'}}>
                 <button onClick={handleAndClear} className={`new-comment-button ${comment.length && 'comment-active'}`} disabled={!comment.length} style={{cursor: comment.length ? 'pointer': 'default'}}>Post</button>

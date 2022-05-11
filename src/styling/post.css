@@ -1,0 +1,66 @@
+.dots {
+  content: url('../assets/dots.svg');
+  right: 0;
+  position: absolute;
+  top: 5px;
+}
+
+.post-header .pfp {
+  height: 60px;
+  width: 60px;
+}
+
+.comment-header .pfp {
+  height: 40px;
+  width: 40px;
+}
+
+.pfp {
+  height: 50px;
+  border-radius: 45px;
+}
+
+.post-header-component {
+  display: flex;
+  position: relative;
+}
+
+.titles {
+  display: inline-block;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.titles h3,
+.titles p {
+  margin: 0;
+}
+
+.titles p {
+  font-size: 0.75rem;
+  /* margin-bottom: 3px; */
+}
+
+.add-comment-component {
+  max-width: 100%;
+  background-color: #f1f4f8;
+  border-radius: 100px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 15px;
+}
+
+.comment-field {
+  margin: 0.5rem;
+}
+
+.separator {
+  height: 2px;
+  width: 100%;
+  background-color: #ced7e7;
+}
+
+.comment {
+  margin: 1rem 0;
+}
